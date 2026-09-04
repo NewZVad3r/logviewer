@@ -28,10 +28,10 @@
 <body>
 
         {% block navbar %}
-		
-		{% include 'navbar.html' %}
 
-		{% endblock %}
+	{% include 'navbar.html' %}
+
+	{% endblock %}
     
     
 <div class='entry'>
@@ -41,7 +41,7 @@
         <div class="info__guild-icon-container">
             <img class="info__guild-icon hoverable"
                  src="{{ log_entry.recipient.avatar_url }}"
-                 onerror="this.onerror=null;this.src='{{ log_entry.recipient.default_avatar_url }}'"
+                 onerror="if(this.onerror){this.onerror=null;this.src='{{ log_entry.recipient.default_avatar_url }}'}else{this.onerror=null}"
                  alt="avatar">
         </div>
         <div class="info__metadata">
@@ -81,7 +81,7 @@
                 <div class="chatlog__author-avatar-container">
                         <img class="chatlog__author-avatar"
                              src="{{ group.author.avatar_url }}"
-                             onerror="this.onerror=null;this.src='{{ group.author.default_avatar_url }}'"
+                             onerror="if(this.onerror){this.onerror=null;this.src='{{ group.author.default_avatar_url }}'}else{this.onerror=null}"
                              alt="avatar"/>
                 </div>
 
@@ -234,8 +234,8 @@
 
     </script>
         
-		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
         M.AutoInit();
@@ -243,3 +243,4 @@
         </script>
 </body>
 </html>
+
